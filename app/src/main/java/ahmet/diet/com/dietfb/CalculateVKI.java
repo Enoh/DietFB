@@ -52,6 +52,8 @@ public class CalculateVKI extends AppCompatActivity {
         final TextView sonuc = (TextView) findViewById(R.id.textView3);
         final TextView detay = (TextView) findViewById(R.id.textView4);
 
+        TextView name = (TextView)findViewById(R.id.textView);
+        name.setText(getIntent().getExtras().getString("veri"));
 
 
                 Button islem = (Button) findViewById(R.id.islem);

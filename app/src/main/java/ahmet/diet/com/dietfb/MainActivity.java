@@ -68,7 +68,7 @@ public class MainActivity extends Activity {
 
         loginButton.setReadPermissions(Arrays.asList("public_profile ","user_friends","email"));
 
-        btnVKI.setOnClickListener(new View.OnClickListener() {
+       /* btnVKI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
                 startActivity(nextpage);
 
             }
-        });
+        });*/
 
         loginButton.registerCallback(callbackManager,new FacebookCallback<LoginResult>() {
             @Override
@@ -101,7 +101,12 @@ public class MainActivity extends Activity {
 
                                     String id = user.getString("id");
                                     String name = user.getString("name");
-                                    user_name.setText("HoÅŸgeldin " + " " + name);
+                                    //String surname = user.getString("first_name");
+                                    //String gender = user.getString("gender");
+                                    user_name.setText("Welcome " + " " + name);
+                                    Intent nextpage = new Intent(MainActivity.this, CalculateVKI.class);
+                                    nextpage.putExtra("veri", user_name.getText().toString());
+                                    startActivity(nextpage);
 
 
 
@@ -159,9 +164,9 @@ public class MainActivity extends Activity {
         if(shareDialog.canShow(ShareLinkContent.class))
         {
             ShareLinkContent shareLinkContent = new ShareLinkContent.Builder()
-                    .setContentTitle("mobilhanem")
-                    .setContentUrl(Uri.parse("http://www.mobilhanem.com/"))
-                    .setContentDescription("Facebook Entegrasyonu TamamlandÄ±"+" "+send)
+                    .setContentTitle("Diet")
+                    .setContentUrl(Uri.parse("http://www.youtube.com/"))
+                    .setContentDescription("Facebook Entegrasyonu Tamamlandi"+" "+send)
                     .build();
 
             shareDialog.show(shareLinkContent);
@@ -170,6 +175,11 @@ public class MainActivity extends Activity {
 
 
 
+    }
+
+    public  void  Insert()
+    {
+        //
     }
 
 
